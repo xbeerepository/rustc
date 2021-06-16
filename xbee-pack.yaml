@@ -1,6 +1,7 @@
 schema-version: 1.0
 
 provision:
+  - pkg: build-essential
   - shell: 
       cmds:
         - curl -o install_rust.sh --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
