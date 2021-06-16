@@ -1,0 +1,18 @@
+schema-version: 1.0
+
+provision:
+  - shell: 
+      cmds:
+        - curl -o install_rust.sh --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
+        - chmod +x install_rust.sh
+        - ./install_rust.sh -y
+      user: default
+
+user: default
+directory: /app
+volume: app:/app:.
+
+command:
+  rustc: rustc {{ .args }}
+  cargo: cargo {{ .args }}
+  rustdoc: rustdoc {{ .args }}
